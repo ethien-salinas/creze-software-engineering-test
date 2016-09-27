@@ -2,15 +2,10 @@ Basic Rules
 ===========
 
 1. Review the questions in this file. Reply back via email with an estimated delivery date.
-
 2. Answer each of the questions below.
-
 3. Add your answer to each question to this file, in-line.
-
 4. Send the final file back for review.
-
 5. Bonus points if you add this initial file to your public git repo and share that repo with us so we can see how your answers progressed.
-
 6. You may use external sources to help answer the questions (i.e. Google, etc), but you should always cite your sources in your comments. Learning from others is good. Plagiarism is bad.
 
 
@@ -18,19 +13,15 @@ Developer Test
 ==============
 
 1.  What editor will you use to edit this file, and why?
-
 	* I will use sublime text because it has support to develop in many languages making easy view code and do some tasks.
 
 2.  Some of the questions will ask for a solution in the language of your choice.  What language(s) will you choose, and why?
-	
 	* As first option i will use Java because is the languaje that i currently use to make backend developments and secondly JavaScript because I have used it in previous jobs to backend and frontend development
 
 3.  Explain the difference between testing and debugging.
-
 	* The main diference is the stage when you apply those ideas, 'testing' is to know if something is working as you expected, generally in the development phase and can be done by the development team or specifically by the testing team. In the other hand, 'debuggin' is done to fix bugs raised in the previous phase and is totally done for the development team.
 
 4.  Consider a user querying a search engine.  Describe, in as much detail as you like, what happens between the user clicking the "submit" button and the display of the results.
-
 	* when the user click the submit button, the html form information is collected to be send to the backend engine
 	* the backend engine takes that information and apply its algorithms to find the best coincidences
 	* when the information is ready to be send back to the browser, depending the used approach, the backend send the data purely or in html markup previously built in the backend
@@ -73,15 +64,59 @@ employee                              / department
 
 5.  Write an SQL query to list the full name of every employee, alphabetized by first name.
 
+	```SQL
+	select name from employee order by name;
+	```
+
 6.  Write an SQL query to list the full name of every employee, alphabetized by last name.
+
+	```SQL
+	SELECT
+	  SUBSTRING(name, 1, CHARINDEX(' ', name ) - 1) AS FirstName,
+	  SUBSTRING(name, CHARINDEX(' ', name) + 1, 8000) AS LastName
+	FROM
+	 employee
+	order by LastName;
+	```
+	Fuentes:
+	* [Informix SUBSTRB function]
+	* [Informix CHARINDEX function]
+	* [Stackoverflow substring-in-informix]
+
+	[Informix SUBSTRB function]: <https://www.ibm.com/support/knowledgecenter/SSGU8G_11.70.0/com.ibm.sqls.doc/ids_sqs_1985.htm#ids_sqs_1985>
+	[Informix CHARINDEX function]: <http://www.ibm.com/support/knowledgecenter/SSGU8G_12.1.0/com.ibm.sqls.doc/ids_sqs_0294.htm#ids_sqs_0294>
+	[Stackoverflow substring-in-informix]: <http://stackoverflow.com/questions/20792045/substring-in-informix>
 
 7.  Write an SQL query to list the full name of every employee along with the full name of his/her manager.
 
+	```SQL
+	select e1.name as employee, e2.name as manager
+	from employee e1, employee e2
+	where e1.mgr_id = e2.id;
+	```
+	Fuentes:
+	* [Stackoverflow same table twice]
+
+	[Stackoverflow same table twice]: <http://stackoverflow.com/questions/7383753/is-it-possible-to-use-the-same-table-twice-in-a-select-query>
+
 8.  Write an SQL query to list the full name of every employee in the Sales department.
+
+```SQL
+select employee.name from employee, department
+where head = mgr_id
+and department.name = 'Sales';
+```
 
 9.  Write an SQL query to list the full name of every employee along with name of his/her department.
 
+```SQL
+select employee.name, department.name
+from employee, department
+where head = mgr_id;
+```
+
 10. Is there a better design for a database that supports the queries described in questions 5-9?  If so, describe it.  If not, why not?
+	* In order to link the two tables easily, department should have an id and the employee table a foreign key to that id
 
 11. Write a function in the language of your choice that implements quicksort on an array of integers.
 
