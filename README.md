@@ -78,7 +78,7 @@ employee                              / department
 	 employee
 	order by LastName;
 	```
-	Fuentes:
+	Resources:
 	* [Informix SUBSTRB function]
 	* [Informix CHARINDEX function]
 	* [Stackoverflow substring-in-informix]
@@ -90,7 +90,7 @@ employee                              / department
 	from employee e1, employee e2
 	where e1.mgr_id = e2.id;
 	```
-	Fuentes:
+	Resources:
 	* [Stackoverflow same table twice]
 
 8.  Write an SQL query to list the full name of every employee in the Sales department.
@@ -173,7 +173,7 @@ employee                              / department
 	  }
 	}
 	```
-	Fuentes:
+	Resources:
 	* [vogella - Quicksort in Java]
 
 12. Write a function in the language of your choice that performs binary search on a sorted array of integers.
@@ -201,7 +201,7 @@ employee                              / department
 	  }
 	}
 	```
-	Fuentes:
+	Resources:
 	* [vogella - Binary Search]
 
 13. Write a function in the language of your choice performs the query you wrote for question 7, and outputs the results as an HTML table.
