@@ -71,10 +71,10 @@ employee                              / department
 6.  Write an SQL query to list the full name of every employee, alphabetized by last name.
 
 	```SQL
-	SELECT
+	select
 	  SUBSTRING(name, 1, CHARINDEX(' ', name ) - 1) AS FirstName,
 	  SUBSTRING(name, CHARINDEX(' ', name) + 1, 8000) AS LastName
-	FROM
+	from
 	 employee
 	order by LastName;
 	```
@@ -101,26 +101,118 @@ employee                              / department
 
 8.  Write an SQL query to list the full name of every employee in the Sales department.
 
-```SQL
-select employee.name from employee, department
-where head = mgr_id
-and department.name = 'Sales';
-```
+	```SQL
+	select employee.name
+	from employee, department
+	where head = mgr_id
+	and department.name = 'Sales';
+	```
 
 9.  Write an SQL query to list the full name of every employee along with name of his/her department.
 
-```SQL
-select employee.name, department.name
-from employee, department
-where head = mgr_id;
-```
+	```SQL
+	select employee.name, department.name
+	from employee, department
+	where head = mgr_id;
+	```
 
 10. Is there a better design for a database that supports the queries described in questions 5-9?  If so, describe it.  If not, why not?
 	* In order to link the two tables easily, department should have an id and the employee table a foreign key to that id
 
 11. Write a function in the language of your choice that implements quicksort on an array of integers.
 
+	```Java
+	public class Quicksort  {
+	  private int[] numbers;
+	  private int number;
+
+	  public void sort(int[] values) {
+	    // check for empty or null array
+	    if (values ==null || values.length==0){
+	      return;
+	    }
+	    this.numbers = values;
+	    number = values.length;
+	    quicksort(0, number - 1);
+	  }
+
+	  private void quicksort(int low, int high) {
+	    int i = low, j = high;
+	    // Get the pivot element from the middle of the list
+	    int pivot = numbers[low + (high-low)/2];
+
+	    // Divide into two lists
+	    while (i <= j) {
+	      // If the current value from the left list is smaller then the pivot
+	      // element then get the next element from the left list
+	      while (numbers[i] < pivot) {
+	        i++;
+	      }
+	      // If the current value from the right list is larger then the pivot
+	      // element then get the next element from the right list
+	      while (numbers[j] > pivot) {
+	        j--;
+	      }
+
+	      // If we have found a values in the left list which is larger then
+	      // the pivot element and if we have found a value in the right list
+	      // which is smaller then the pivot element then we exchange the
+	      // values.
+	      // As we are done we can increase i and j
+	      if (i <= j) {
+	        exchange(i, j);
+	        i++;
+	        j--;
+	      }
+	    }
+	    // Recursion
+	    if (low < j)
+	      quicksort(low, j);
+	    if (i < high)
+	      quicksort(i, high);
+	  }
+
+	  private void exchange(int i, int j) {
+	    int temp = numbers[i];
+	    numbers[i] = numbers[j];
+	    numbers[j] = temp;
+	  }
+	}
+	```
+	Fuentes:
+	* [vogella - Quicksort in Java]
+
+	[vogella - Quicksort in Java]: <http://www.vogella.com/tutorials/JavaAlgorithmsQuicksort/article.html>
+
 12. Write a function in the language of your choice that performs binary search on a sorted array of integers.
+
+	```Java
+	public class BinarySearch {
+	  public static boolean contains(int[] a, int b) {
+	    if (a.length == 0) {
+	      return false;
+	    }
+	    int low = 0;
+	    int high = a.length-1;
+
+	    while(low <= high) {
+	      int middle = (low+high) /2; 
+	      if (b> a[middle]){
+	        low = middle +1;
+	      } else if (b< a[middle]){
+	        high = middle -1;
+	      } else { // The element has been found
+	        return true; 
+	      }
+	    }
+	    return false;
+	  }
+	}
+	```
+	Fuentes:
+	* [vogella - Binary Search]
+
+	[vogella - Binary Search]: <http://www.vogella.com/tutorials/JavaAlgorithmsSearch/article.html#binarysearch>
 
 13. Write a function in the language of your choice performs the query you wrote for question 7, and outputs the results as an HTML table.
 
