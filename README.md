@@ -83,10 +83,6 @@ employee                              / department
 	* [Informix CHARINDEX function]
 	* [Stackoverflow substring-in-informix]
 
-	[Informix SUBSTRB function]: <https://www.ibm.com/support/knowledgecenter/SSGU8G_11.70.0/com.ibm.sqls.doc/ids_sqs_1985.htm#ids_sqs_1985>
-	[Informix CHARINDEX function]: <http://www.ibm.com/support/knowledgecenter/SSGU8G_12.1.0/com.ibm.sqls.doc/ids_sqs_0294.htm#ids_sqs_0294>
-	[Stackoverflow substring-in-informix]: <http://stackoverflow.com/questions/20792045/substring-in-informix>
-
 7.  Write an SQL query to list the full name of every employee along with the full name of his/her manager.
 
 	```SQL
@@ -96,8 +92,6 @@ employee                              / department
 	```
 	Fuentes:
 	* [Stackoverflow same table twice]
-
-	[Stackoverflow same table twice]: <http://stackoverflow.com/questions/7383753/is-it-possible-to-use-the-same-table-twice-in-a-select-query>
 
 8.  Write an SQL query to list the full name of every employee in the Sales department.
 
@@ -182,8 +176,6 @@ employee                              / department
 	Fuentes:
 	* [vogella - Quicksort in Java]
 
-	[vogella - Quicksort in Java]: <http://www.vogella.com/tutorials/JavaAlgorithmsQuicksort/article.html>
-
 12. Write a function in the language of your choice that performs binary search on a sorted array of integers.
 
 	```Java
@@ -212,8 +204,6 @@ employee                              / department
 	Fuentes:
 	* [vogella - Binary Search]
 
-	[vogella - Binary Search]: <http://www.vogella.com/tutorials/JavaAlgorithmsSearch/article.html#binarysearch>
-
 13. Write a function in the language of your choice performs the query you wrote for question 7, and outputs the results as an HTML table.
 
 14. Write a program in the language of your choice that takes a filename and a number N as arguments and retrieves and outputs the Nth line from the file.
@@ -221,3 +211,10 @@ employee                              / department
 15. Write the function from question 12 in a different language.
 
 16. Write the program from question 14 in a different language (it can be the same language you used for #15, but it doesn't have to be).
+
+[Informix SUBSTRB function]: <https://www.ibm.com/support/knowledgecenter/SSGU8G_11.70.0/com.ibm.sqls.doc/ids_sqs_1985.htm#ids_sqs_1985>
+[Informix CHARINDEX function]: <http://www.ibm.com/support/knowledgecenter/SSGU8G_12.1.0/com.ibm.sqls.doc/ids_sqs_0294.htm#ids_sqs_0294>
+[Stackoverflow substring-in-informix]: <http://stackoverflow.com/questions/20792045/substring-in-informix>
+[Stackoverflow same table twice]: <http://stackoverflow.com/questions/7383753/is-it-possible-to-use-the-same-table-twice-in-a-select-query>
+[vogella - Quicksort in Java]: <http://www.vogella.com/tutorials/JavaAlgorithmsQuicksort/article.html>
+[vogella - Binary Search]: <http://www.vogella.com/tutorials/JavaAlgorithmsSearch/article.html#binarysearch>
