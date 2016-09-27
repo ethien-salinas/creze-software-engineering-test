@@ -30,15 +30,15 @@ Developer Test
 The two tables below describe relationships between employees, managers, and departments (the columns employee.mgr_id and department.head both refer to employee.id).  Use these definitions to answer questions 5-10.  If you need to use any nonstandard functions or syntax, be sure to name the DBMS that implements them.
 
 
-employee                              department
-----------------------------------    -----------------------
- id |        name        | mgr_id           name      | head
-----+--------------------+--------    ----------------+------
-  1 | Jonathan Archer    |     11      Operations     |   11
-  2 | Christopher Pike   |     12      Marketing      |   12
-  3 | James Kirk         |     13      IT             |   13
-  4 | Jean-Luc Picard    |     14      HR             |   14
-  5 | Kathryn Janeway    |     15      Sales          |   15
+employee                              / department
+
+ id |        name        | mgr_id |   |     name      | head
+----|--------------------|--------|---|---------------|------
+  1 | Jonathan Archer    |     11 |   | Operations    |   11
+  2 | Christopher Pike   |     12 |   | Marketing     |   12
+  3 | James Kirk         |     13 |   | IT            |   13
+  4 | Jean-Luc Picard    |     14 |   | HR            |   14
+  5 | Kathryn Janeway    |     15 |   | Sales         |   15
   6 | Ralph Wiggum       |     11
   7 | Troy McClure       |     12
   8 | Waylon Smithers    |     17
