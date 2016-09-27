@@ -204,7 +204,78 @@ employee                              / department
 
 13. Write a function in the language of your choice performs the query you wrote for question 7, and outputs the results as an HTML table.
 
+	```Java
+	// in the backend we make the call to the database
+	public List<Element> getElements(RecordSearchRequest request){
+		return elementRepository.findAll(ElementSpecifications.elementByGeneral(request));
+	}
+	```
+
+	```Java
+	// in the frontend we make a call to the backend to get the elements
+	RecordSearchResponse responses = restClient.getElements(recordSearchRequest);
+	List<Element> elementsFound = responses.getElementsFound();
+	model.addAttribute("responses", elementsFound);
+	```
+
+	```html
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>employee</th>
+				<th>manager</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="response : ${responses}">
+				<td th:text="${response.employee}">employee</td>
+				<td th:text="${response.manager}">manager</td>
+			</tr>
+		</tbody>
+	</table>
+	```
+	Resources:
+	* [Tutorial: Thymeleaf + Spring]
+
 14. Write a program in the language of your choice that takes a filename and a number N as arguments and retrieves and outputs the Nth line from the file.
+
+	```Java
+	import java.io.BufferedReader;
+	import java.io.FileNotFoundException;
+	import java.io.FileReader;
+	import java.io.IOException;
+
+	public class ReadNthLineOfFile {
+
+		private static String path = "C:/Users/salinased/Documents/LoremIpsum.txt";
+		private static int line = 7;
+		
+		public static void main(String[] args) {
+			ReadNthLineOfFile readNthLineOfFile = new ReadNthLineOfFile();
+			readNthLineOfFile.readFile(path, line);
+
+		}
+		
+		private void readFile(String path, int lineToRead){
+			try(BufferedReader br = new BufferedReader(new FileReader(path))) {
+			    String line = "";
+			    while (line != null) {
+			        for(int i=0; i<lineToRead; i++){		        	
+			        	line = br.readLine();
+			        }
+			        System.out.println(line);
+			    }
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+	```
+	Resources:
+	* [Stackoverflow reading-a-plain-text-file-in-java]
 
 15. Write the function from question 12 in a different language.
 
@@ -216,3 +287,5 @@ employee                              / department
 [Stackoverflow same table twice]: <http://stackoverflow.com/questions/7383753/is-it-possible-to-use-the-same-table-twice-in-a-select-query>
 [vogella - Quicksort in Java]: <http://www.vogella.com/tutorials/JavaAlgorithmsQuicksort/article.html>
 [vogella - Binary Search]: <http://www.vogella.com/tutorials/JavaAlgorithmsSearch/article.html#binarysearch>
+[Tutorial: Thymeleaf + Spring]: <http://www.thymeleaf.org/doc/tutorials/2.1/thymeleafspring.html>
+[Stackoverflow reading-a-plain-text-file-in-java]: <http://stackoverflow.com/questions/4716503/reading-a-plain-text-file-in-java>
