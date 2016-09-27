@@ -1,5 +1,4 @@
-
-﻿Basic Rules
+Basic Rules
 ===========
 
 1. Review the questions in this file. Reply back via email with an estimated delivery date.
@@ -20,12 +19,23 @@ Developer Test
 
 1.  What editor will you use to edit this file, and why?
 
+	* I will use sublime text because it has support to develop in many languages making easy view code and do some tasks.
+
 2.  Some of the questions will ask for a solution in the language of your choice.  What language(s) will you choose, and why?
+	
+	* As first option i will use Java because is the languaje that i currently use to make backend developments and secondly JavaScript because I have used it in previous jobs to backend and frontend development
 
 3.  Explain the difference between testing and debugging.
 
+	* The main diference is the stage when you apply those ideas, 'testing' is to know if something is working as you expected, generally in the development phase and can be done by the development team or specifically by the testing team. In the other hand, 'debuggin' is done to fix bugs raised in the previous phase and is totally done for the development team.
+
 4.  Consider a user querying a search engine.  Describe, in as much detail as you like, what happens between the user clicking the "submit" button and the display of the results.
 
+	* when the user click the submit button, the html form information is collected to be send to the backend engine
+	* the backend engine takes that information and apply its algorithms to find the best coincidences
+	* when the information is ready to be send back to the browser, depending the used approach, the backend send the data purely or in html markup previously built in the backend
+	* if the browser received only data, the client is responsible to format that information to build the html markup
+	* the information is shown to the customer as html page
 
 The two tables below describe relationships between employees, managers, and departments (the columns employee.mgr_id and department.head both refer to employee.id).  Use these definitions to answer questions 5-10.  If you need to use any nonstandard functions or syntax, be sure to name the DBMS that implements them.
 
